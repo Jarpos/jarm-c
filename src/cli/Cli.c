@@ -1,6 +1,7 @@
 #include "Cli.h"
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <math.h>
 
@@ -32,7 +33,7 @@ static int internal_cli_GetNumbLength(uint16_t numb)
      * We just need to worry about 0 since log10(0) would return -HUGE_VAL
      * (log10(1) returns 0 and with the plus one it's right again)
      */
-    return numb == 0 ? 1 : log10(numb) + 1; // <-- Need to link to math.h (libm) for this
+    return numb == 0 ? 1 : (int)log10(numb) + 1; // <-- Need to link to math.h (libm) for this
 }
 
 void cli_PrintBoard(Board_t* board, bool clear)
@@ -74,7 +75,7 @@ char* cli_GetCommand()
     if (ungetc(c, stdin) == EOF) return NULL;
 
     size_t buffSize = COMMAND_BUF;
-    char* buffer = malloc(buffSize);
+    char* buffer = (char*)malloc(buffSize);
 
     for (size_t i = 0;; i++)
     {
@@ -82,7 +83,7 @@ char* cli_GetCommand()
         if (/*c == EOF || c == '\n' ||*/ c == ';')
         {
             buffer[i] = '\0';
-            buffer = realloc(buffer, i + 1);
+            buffer = (char*)realloc(buffer, i + 1);
             return buffer;
         }
         buffer[i] = c == '\0' ? ' ' : c;
@@ -90,7 +91,7 @@ char* cli_GetCommand()
         if (i + 1 >= buffSize)
         {
             buffSize += COMMAND_BUF;
-            buffer = realloc(buffer, buffSize);
+            buffer = (char*)realloc(buffer, buffSize);
 
             if (!buffer) return NULL;
         }
