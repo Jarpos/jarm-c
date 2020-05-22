@@ -40,7 +40,8 @@ errors<br>
 
 ### Build
 **Dependencies:**<br>
-No external dependencies apart from the C standard library<br>
+No external dependencies apart from the C standard library
+and libm (C Standard Math library)<br>
 <br>
 
 **Building:**<br>
