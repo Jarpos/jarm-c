@@ -29,11 +29,16 @@ set(cd ${psd}/src/logic)
 set(log ${cd}/GameLogic.c)
 add_library(log "${log}")
 
-
 # Generate executable with linkage to libraries
 set(libs cli
-         log
-         m)  # "m" is needed to link to libm (math.h)
+         log)
+
+IF (!WIN32)
+    set(libs ${libs} m) # "m" is needed to link to libm (math.h)
+                        # but windows does linking to math automatically
+                        # so we don't need math.h here
+ENDIF()
+
 add_executable(prog.out src/main.c)
 target_link_libraries(prog.out PUBLIC ${libs})
 
