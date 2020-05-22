@@ -2,12 +2,7 @@
 #ifndef _COMMAND_LINE_INTERFACE_42_H_
 #define _COMMAND_LINE_INTERFACE_42_H_
 
-#include <inttypes.h>
-#include <stdio.h>
 #include <stdbool.h>
-#include <string.h>
-#include <errno.h>
-#include <math.h>
 
 #include "../logic/GameLogic.h"
 #include "../config.h"

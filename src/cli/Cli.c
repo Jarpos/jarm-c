@@ -1,5 +1,9 @@
 #include "Cli.h"
 
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+
 static void internal_cli_PrintCell(Board_t* board, uint16_t row, uint16_t col, bool clear)
 {
     for (size_t tmp = col; tmp > 10; tmp /= 10)
