@@ -66,17 +66,14 @@
 #if defined(_WIN32) || defined(_WIN64)
 #endif // !(_WIN32 || _WIN64)
 
-#if __COLORS__ == 1
-    #include "cli/conscodes.h"
-
-    // Event colors
-    #define COL_LOSS    C_F_RED   // Loss color
-    #define COL_WIN     C_F_GREEN // Win color
-    #define COL_INDEX   C_F_BROWN // Grid indexnumber color
-    #define COL_HIDDEN  C_F_WHITE // Hidden field
-    #define COL_CLEARED C_F_GREEN // Opened field
-    #define COL_FLAGGED C_F_RED   // Flagged field
-    #define COL_RESET   C_RESET   // Reset colors
-#endif
+// Event colors - these don't matter when colors are turned off
+#include "cli/conscodes.h"
+#define COL_LOSS    C_F_RED   // Loss color
+#define COL_WIN     C_F_GREEN // Win color
+#define COL_INDEX   C_F_BROWN // Grid indexnumber color
+#define COL_HIDDEN  C_F_WHITE // Hidden field
+#define COL_CLEARED C_F_GREEN // Opened field
+#define COL_FLAGGED C_F_RED   // Flagged field
+#define COL_RESET   C_RESET   // Reset colors
 
 #endif // !_CONFIGURATION_42_H_
