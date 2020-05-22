@@ -1,0 +1,9 @@
+# Editors
+*.swp
+*.vscode
+*.subl
+
+## CMAKE Gitignore
+build/*
+!build/.gitkeep
+
