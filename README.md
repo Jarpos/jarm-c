@@ -21,6 +21,12 @@ _Why not use a graphic library like ncurses?_<br>
 Because I did not want to<br>
 <br>
 
+_Why do you cast your mallocs?_<br>
+Modern C compilers usually don't care, but C++ compilers do and I
+don't really want to deal with CMake choosing a C++ compiler and throwing
+errors<br>
+<br>
+
 <br>
 
 **Todo** (After most basic stuff is finished)**:**<br>
