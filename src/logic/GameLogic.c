@@ -1,5 +1,8 @@
 #include "GameLogic.h"
 
+#include <stdlib.h>
+#include <time.h>
+
 Board_t* msw_Init(uint16_t cols, uint16_t rows)
 {
     rows = rows < MAX_GRID_ROWS // Assign to given row amount or standard size

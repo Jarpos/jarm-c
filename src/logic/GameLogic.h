@@ -3,8 +3,6 @@
 #define _GAME_LOGIC_42_H_
 
 #include <stdint.h>
-#include <stdlib.h>
-#include <time.h>
 
 #include "../config.h"
 
