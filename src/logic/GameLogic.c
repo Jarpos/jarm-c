@@ -93,7 +93,7 @@ void msw_UpdateGameState(Board_t* board)
     board->GameState = GS_WON;
 }
 
-uint16_t msw_GetAdjacent(Board_t* board, uint16_t col, uint16_t row)
+uint16_t msw_GetAdjacent(Board_t* board, uint16_t row, uint16_t col)
 {
     uint16_t cnt = 0;
 
@@ -102,7 +102,7 @@ uint16_t msw_GetAdjacent(Board_t* board, uint16_t col, uint16_t row)
                            col + oc < 0)            && \
                          !(row + or >= board->Rows  || \
                            row + or < 0))              \
-                         if (board->Grid[col + oc][row + or] == 1
+                         if (board->Grid[row + or][col + oc] == 1
     // Name: Test Adjacent (with offset)
     // Explanation: (offset column, offset row)
     //              The macro tests if the cell to test is within the grid

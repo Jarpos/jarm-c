@@ -19,7 +19,7 @@ static void internal_cli_PrintCell(Board_t* board, uint16_t row, uint16_t col, b
     case FS_NOTHING:   printf(COL_HIDDEN FC_NOTHING);                break;
     case FS_NOTHING_F: printf(COL_HIDDEN FC_NOTHING_F);              break;
     case FS_CLEARED:   printf(COL_CLEARED FC_CLEARED,
-                              msw_GetAdjacent(board, col, row));     break;
+                              msw_GetAdjacent(board, row, col));     break;
     }
 }
 
