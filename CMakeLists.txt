@@ -33,7 +33,7 @@ add_library(log "${log}")
 set(libs cli
          log)
 
-IF (!WIN32)
+IF (NOT WIN32)
     set(libs ${libs} m) # "m" is needed to link to libm (math.h)
                         # but windows does linking to math automatically
                         # so we don't need math.h here
