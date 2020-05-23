@@ -30,7 +30,6 @@ errors<br>
 <br>
 
 **Todo** (After most basic stuff is finished)**:**<br>
- - [ ] Fix display of adjacent bombs when colors are disabled
  - [ ] Generate fields until valid input is found for first input
  - [ ] Clear adjacent fields if selected field has no adjacent bombs
  - [X] Add row/column numbers to cli output
