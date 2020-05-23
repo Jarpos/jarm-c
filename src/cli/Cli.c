@@ -167,6 +167,7 @@ void cli_PrintEndScreen(Board_t* board)
     P_CLEAR_LINE();
 }
 
+#pragma GCC diagnostic ignored "-Wunused-parameter"
 void cli_IngameHelp(Board_t* board, char** commandvec)
 {
     // Keep cursor aligned with map
@@ -178,6 +179,7 @@ void cli_IngameHelp(Board_t* board, char** commandvec)
            "h (Help);  (Enter to continue)");
     while (getchar() != '\n');
 }
+#pragma GCC diagnostic pop // !-Wunused-parameter
 
 void cli_PrintHelp()
 {
