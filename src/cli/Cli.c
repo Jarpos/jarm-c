@@ -164,7 +164,7 @@ void cli_PrintEndScreen(Board_t* board)
     case GS_LOST: printf(COL_LOSS "You have lost!\n" COL_RESET); break;
     case GS_WON:  printf(COL_WIN  "You have won!\n"  COL_RESET); break;
     }
-    printf(CLEAR_LINE);
+    P_CLEAR_LINE();
 }
 
 void cli_IngameHelp(Board_t* board, char** commandvec)

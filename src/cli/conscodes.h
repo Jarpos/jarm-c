@@ -16,6 +16,7 @@
 
     // Cursor manipulation
     #define CLEAR_LINE _ESC_ "[2K"
+    #define P_CLEAR_LINE() printf(_ESC_ CLEAR_LINE)
     #define GO_UP(x)   printf(_ESC_ "[%dA", x)
     #define GO_DO(x)   printf(_ESC_ "[%dB", x)
 
@@ -40,42 +41,45 @@
     #define C_B_WHITE   _ESC_ "[47m"
 
     #define C_RESET _ESC_ "[0m"
+
 #else // If not __COLORS__
+
     // Select escape sequence based on Current OS
     #if defined(__unix__)
-        #define _ESC_ "" // Console escape sequence
+        #define _ESC_ // Console escape sequence
     #endif
 
     #if defined(_WIN32) || defined(_WIN64)
-        #define _ESC_ "" // Console escape sequence
+        #define _ESC_ // Console escape sequence
     #endif
 
     // Cursor manipulation
-    #define CLEAR_LINE _ESC_ ""
+    #define CLEAR_LINE _ESC_
+    #define P_CLEAR_LINE() ;
     #define GO_UP(x)   ;
     #define GO_DO(x)   ;
 
     // Console foreground color codes
-    #define C_F_BLACK   _ESC_ ""
-    #define C_F_RED     _ESC_ ""
-    #define C_F_GREEN   _ESC_ ""
-    #define C_F_BROWN   _ESC_ ""
-    #define C_F_BLUE    _ESC_ ""
-    #define C_F_MAGENTA _ESC_ ""
-    #define C_F_CYAN    _ESC_ ""
-    #define C_F_WHITE   _ESC_ ""
+    #define C_F_BLACK   _ESC_
+    #define C_F_RED     _ESC_
+    #define C_F_GREEN   _ESC_
+    #define C_F_BROWN   _ESC_
+    #define C_F_BLUE    _ESC_
+    #define C_F_MAGENTA _ESC_
+    #define C_F_CYAN    _ESC_
+    #define C_F_WHITE   _ESC_
 
     // Console background color codes
-    #define C_B_BLACK   _ESC_ ""
-    #define C_B_RED     _ESC_ ""
-    #define C_B_GREEN   _ESC_ ""
-    #define C_B_BROWN   _ESC_ ""
-    #define C_B_BLUE    _ESC_ ""
-    #define C_B_MAGENTA _ESC_ ""
-    #define C_B_CYAN    _ESC_ ""
-    #define C_B_WHITE   _ESC_ ""
+    #define C_B_BLACK   _ESC_
+    #define C_B_RED     _ESC_
+    #define C_B_GREEN   _ESC_
+    #define C_B_BROWN   _ESC_
+    #define C_B_BLUE    _ESC_
+    #define C_B_MAGENTA _ESC_
+    #define C_B_CYAN    _ESC_
+    #define C_B_WHITE   _ESC_
 
-    #define C_RESET _ESC_ ""
+    #define C_RESET _ESC_
 #endif // !__COLORS__
 
 #endif // !_CONSOLE_CODES_42_H_
