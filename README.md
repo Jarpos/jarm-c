@@ -1,5 +1,5 @@
 # Basic CLI Minesweeper
-...that I will probably never properly finish...
+...that I <s>will probably never properly finish</s> pretty much finished...
 
 <br>
 
