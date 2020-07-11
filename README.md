@@ -3,15 +3,6 @@
 
 <br>
 
-**Notes:**<br>
- - This is a custom implementation of the little known game "[Minesweeper](https://en.wikipedia.org/w/index.php?title=Minesweeper_(video_game)&oldid=952746116)"
- - All _should_ be compatible with C99
- - It works under Linux (in its current state not under windows (since I use some Linux specific headers))
- - If GitHub says that there is C++ in here, it mislabeled the "config.h"
- - A badly written `build.sh` buildscript is provided (the advantage is that it builds in `build` automatically)
-
-<br>
-
 **NAQ** (Never Asked Questions)**:**<br>
 _Why?_<br>
 Because I wanted to do something in C and this seemed simple enough<br>
@@ -27,8 +18,6 @@ don't really want to deal with CMake choosing a C++ compiler and throwing
 errors<br>
 <br>
 
-<br>
-
 **Todo** (After most basic stuff is finished)**:**<br>
  - [ ] Generate fields until valid input is found for first input
  - [ ] Clear adjacent fields if selected field has no adjacent bombs
@@ -40,7 +29,7 @@ errors<br>
 
 ### Build
 **Dependencies:**<br>
-No external dependencies apart from the C standard library
+No external dependencies apart from the C99 standard library
 and libm (C Standard Math library)<br>
 <br>
 
