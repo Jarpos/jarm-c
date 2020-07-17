@@ -13,8 +13,8 @@ typedef struct command_t
 
 int main(int argc, char* argv[])
 {
-    /* Declare bare minimum of
-     * variables needed for argv parsing */
+    /* Declare bare minimum of argv
+     * variables needed for parsing */
     uint16_t row = 0,
              col = 0;
 

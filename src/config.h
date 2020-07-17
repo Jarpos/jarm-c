@@ -5,8 +5,10 @@
 
 // Settings enabling/disabling certain things
 #define __DEBUG__  1 // Debug Level of compiled program
+                     // (0 indicates no debugging)
 #define __COLORS__ 1 // If colored output is enabled
-                     // (requires Terminal that is compatible with ANSI escape sequence)
+                     // (requires Terminal that is compatible with VT100 escape sequences)
+
 
 
 // General game settings

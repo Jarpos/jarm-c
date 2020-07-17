@@ -27,9 +27,9 @@ Board_t* msw_Init(uint16_t cols, uint16_t rows)
 void msw_InitMines(Board_t* board)
 {
     srand((unsigned int)time(NULL));
-    for (uint16_t y = 0; y < board->Rows; y++)
-        for (uint16_t x = 0; x < board->Cols; x++)
-            board->Grid[y][x] = rand() % 2;
+    for (uint16_t x = 0; x < board->Rows; x++)
+        for (uint16_t y = 0; y < board->Cols; y++)
+            board->Grid[x][y] = rand() % 2;
 }
 
 void msw_FlagCell(Board_t* board, char** commandvec)
@@ -40,9 +40,8 @@ void msw_FlagCell(Board_t* board, char** commandvec)
     col = (int32_t)atol(commandvec[2]);
 
     // Check if a valid position is entered & if the conversion worked
-    if (board->Cols < col || board->Rows < row ||
-        col < 0           || row < 0) return;
-
+    if (board->Cols < col || col < 0
+     || board->Rows < row || row < 0) return;
     switch (board->Grid[row][col])
     { // TODO: Rework flagging - use bitwise operations maybe
     case FS_NOTHING:   board->Grid[row][col] = FS_NOTHING_F; break;
@@ -103,18 +102,19 @@ uint16_t msw_GetAdjacent(Board_t* board, uint16_t row, uint16_t col)
                          !(row + or >= board->Rows  || \
                            row + or < 0))              \
                          if (board->Grid[row + or][col + oc] == 1
-    // Name: Test Adjacent (with offset)
-    // Explanation: (offset column, offset row)
-    //              The macro tests if the cell to test is within the grid
-    //              and if it is, if the cell is a bomb cell
-    //
-    //              The nesting of ifs within the macro is needed to avoid segfaults
-    //              from reading from an invalid/unalocated memory address in case of
-    //              the cell to test not being on the grid
-    //
-    // Pseudo Code: if (CurrentCell + offset within BoardSize)
-    //                  if (CurrentCell + offset == Bomb)
-    //                      count = count + 1
+    /* Name: Test Adjacent (with offset)
+     * Explanation: (offset column, offset row)
+     *              The macro tests if the cell to test is within the grid
+     *              and if it is, if the cell is a bomb cell
+     *
+     *              The nesting of ifs within the macro is needed to avoid segfaults
+     *              from reading from an invalid/unalocated memory address in case of
+     *              the cell to test not being on the grid
+     *
+     * Pseudo Code: if (CurrentCell + offset within BoardSize)
+     *                  if (CurrentCell + offset == Bomb)
+     *                      count = count + 1
+     */
 
     if (TADJ(-1, -1)) cnt++; // Cells above current cell
     if (TADJ( 0, -1)) cnt++;
