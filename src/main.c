@@ -5,6 +5,12 @@
 #include "cli/Cli.h"
 #include "logic/GameLogic.h"
 
+typedef struct command_t
+{
+    char name;
+    void (*func)(Board_t*, char**);
+} command_t;
+
 int main(int argc, char* argv[])
 {
     /* Declare bare minimum of
@@ -26,11 +32,13 @@ int main(int argc, char* argv[])
     char** commandvec = NULL;
     Board_t* board = msw_Init(row, col);
 
-    // Declare builtin commandchars & commandpointers
-    char cmd_c[] =
-        { 's', 'f', 'h' };
-    void (*cmd_p[])(Board_t*, char**) =
-        { &msw_MakeMove, &msw_FlagCell, &cli_IngameHelp, };
+    // Declare builtin commands
+    command_t cmds[] =
+    {
+        { 's', &msw_MakeMove },
+        { 'f', &msw_FlagCell },
+        { 'h', &cli_IngameHelp },
+    };
 
     do
     {   // Main gameplay loop
@@ -48,11 +56,11 @@ int main(int argc, char* argv[])
         if (!commandvec) continue;
 
         // Find command in builtin commands and execute it
-        for (size_t i = 0; i < sizeof(cmd_c) / sizeof(char); i++)
+        for (size_t i = 0; i < sizeof(cmds) / sizeof(command_t); i++)
         {
-            if (cmd_c[i] == commandvec[0][0])
+            if (cmds[i].name == commandvec[0][0])
             {
-                cmd_p[i](board, commandvec);
+                cmds[i].func(board, commandvec);
                 break;
             }
         }
