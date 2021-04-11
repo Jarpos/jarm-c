@@ -1,6 +1,9 @@
 # Basic CLI Minesweeper
 ...that I <s>will probably never properly finish</s> pretty much finished...
 
+## Quick little HowTo
+![](HowTo.gif)
+
 <br>
 
 **NAQ** (Never Asked Questions)**:**<br>
