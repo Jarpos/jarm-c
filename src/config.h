@@ -43,8 +43,8 @@
 #define FC_NOTHING    "? "  // Field with nothing
 #define FC_NOTHING_F  "! "  // Flagged field (maybe add colour)
 #define FC_BOMB       "? "  // Field with bomb normally
-#define FC_BOMB_F     "! "  // Field with bomb flagged
-#define FC_BOMB_CLEAR "B "  // Bomb when grid is printed in clear mode
+#define FC_BOMB_F     C_F_RED "! "  // Field with bomb flagged
+#define FC_BOMB_CLEAR C_F_RED "B "  // Bomb when grid is printed in clear mode
 #define FC_CLEARED    "%d " // Cleared field (Number of adjacent mines)
 
 // Commandlinearguments parser return values
