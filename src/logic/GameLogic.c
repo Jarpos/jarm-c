@@ -101,7 +101,8 @@ uint16_t msw_GetAdjacent(Board_t* board, uint16_t row, uint16_t col)
                            col + oc < 0)            && \
                          !(row + or >= board->Rows  || \
                            row + or < 0))              \
-                         if (board->Grid[row + or][col + oc] == 1
+                         if (board->Grid[row + or][col + oc] == FS_BOMB || \
+                             board->Grid[row + or][col + oc] == FS_BOMB_F
     /* Name: Test Adjacent (with offset)
      * Explanation: (offset column, offset row)
      *              The macro tests if the cell to test is within the grid
