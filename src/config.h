@@ -4,7 +4,7 @@
 
 
 // Settings enabling/disabling certain things
-#define __DEBUG__  1 // Debug Level of compiled program
+#define __DEBUG__  0 // Debug Level of compiled program
                      // (0 indicates no debugging)
 #define __COLORS__ 1 // If colored output is enabled
                      // (requires Terminal that is compatible with VT100 escape sequences)

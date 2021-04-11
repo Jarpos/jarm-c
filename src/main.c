@@ -13,6 +13,11 @@ typedef struct command_t
 
 int main(int argc, char* argv[])
 {
+#if __DEBUG__ >= 1
+    printf("This is a debug build. As such it may display where the bombs are.\n"
+           "Disable this by setting __DEBUG__ in src/config.h equal to 0\n\n");
+#endif
+
     /* Declare bare minimum of argv
      * variables needed for parsing */
     uint16_t row = 0,
