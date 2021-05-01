@@ -92,44 +92,34 @@ void msw_UpdateGameState(Board_t* board)
     board->GameState = GS_WON;
 }
 
+static int test_adjacent(Board_t* board, uint16_t row, uint16_t col)
+{
+    if (!(col >= board->Cols || col < 0) &&
+        !(row >= board->Rows || row < 0))
+    {
+        if (board->Grid[row][col] == FS_BOMB ||
+            board->Grid[row][col] == FS_BOMB_F)
+        {
+            return 1;
+        }
+    }
+    return 0;
+}
+
 uint16_t msw_GetAdjacent(Board_t* board, uint16_t row, uint16_t col)
 {
     uint16_t cnt = 0;
 
-    // Forgive me for what I am about to do with this macro...
-    #define TADJ(oc, or) !(col + oc >= board->Cols  || \
-                           col + oc < 0)            && \
-                         !(row + or >= board->Rows  || \
-                           row + or < 0))              \
-                         if (board->Grid[row + or][col + oc] == FS_BOMB || \
-                             board->Grid[row + or][col + oc] == FS_BOMB_F
-    /* Name: Test Adjacent (with offset)
-     * Explanation: (offset column, offset row)
-     *              The macro tests if the cell to test is within the grid
-     *              and if it is, if the cell is a bomb cell
-     *
-     *              The nesting of ifs within the macro is needed to avoid segfaults
-     *              from reading from an invalid/unalocated memory address in case of
-     *              the cell to test not being on the grid
-     *
-     * Pseudo Code: if (CurrentCell + offset within BoardSize)
-     *                  if (CurrentCell + offset == Bomb)
-     *                      count = count + 1
-     */
+    if (test_adjacent(board, row-1, col-1)) cnt++; // Cells above current cell
+    if (test_adjacent(board, row+0, col-1)) cnt++;
+    if (test_adjacent(board, row+1, col-1)) cnt++;
 
-    if (TADJ(-1, -1)) cnt++; // Cells above current cell
-    if (TADJ( 0, -1)) cnt++;
-    if (TADJ(+1, -1)) cnt++;
+    if (test_adjacent(board, row-1, col+0)) cnt++; // Cells right/left to current cell
+    if (test_adjacent(board, row+1, col+0)) cnt++;
 
-    if (TADJ(-1,  0)) cnt++; // Cells right/left to current cell
-    if (TADJ(+1,  0)) cnt++;
-
-    if (TADJ(-1, +1)) cnt++; // Cells below current cell
-    if (TADJ( 0, +1)) cnt++;
-    if (TADJ(+1, +1)) cnt++;
-
-    // Forgive me for what I have done with this macro...
-    #undef TADJ
+    if (test_adjacent(board, row-1, col+1)) cnt++; // Cells below current cell
+    if (test_adjacent(board, row+0, col+1)) cnt++;
+    if (test_adjacent(board, row+1, col+1)) cnt++;
 
     return cnt;
 }
