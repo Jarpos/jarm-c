@@ -55,10 +55,10 @@
 // Changes made upon compiling as debug
 #if __DEBUG__ == 1
     #undef FC_BOMB // Show bombs when compiled as Debug
-    #define FC_BOMB "B "
+    #define FC_BOMB C_F_RED "B "
 
     #undef FC_BOMB_F // Show flagged bombs when compiled as Debug
-    #define FC_BOMB_F "F "
+    #define FC_BOMB_F C_F_RED "! "
 #endif // !__DEBUG__
 
 // OS specific stuff
