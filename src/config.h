@@ -79,3 +79,4 @@
 #define COL_RESET   C_RESET   // Reset colors
 
 #endif // !_CONFIGURATION_42_H_
+

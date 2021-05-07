@@ -128,7 +128,7 @@ char** cli_SplitCommand(char* command)
 
 int8_t cli_ParseClArguments(int argc, char* argv[], uint16_t* row, uint16_t* col)
 {
-    /* Test if commandline args are 
+    /* Test if commandline args are
      * correct/contain help option */
     if (argc == 1)
     {
@@ -202,3 +202,4 @@ void cli_PrintHelp()
            MIN_GRID_ROWS, MAX_GRID_ROWS, MIN_GRID_COLUMNS, MAX_GRID_COLUMNS,
            STD_GRID_ROWS, STD_GRID_COLUMNS);
 }
+

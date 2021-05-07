@@ -83,3 +83,4 @@
 #endif // !__COLORS__
 
 #endif // !_CONSOLE_CODES_42_H_
+

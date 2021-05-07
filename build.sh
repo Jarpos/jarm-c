@@ -14,3 +14,4 @@ cd "${current_dir}/build"
 cmake ../
 
 cmake --build . --config Debug --target all
+
