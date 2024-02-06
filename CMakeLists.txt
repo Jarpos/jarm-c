@@ -41,4 +41,3 @@ ENDIF()
 
 add_executable(prog.out src/main.c)
 target_link_libraries(prog.out PUBLIC ${libs})
-
