@@ -119,4 +119,3 @@ Do until game is not ongoing
 Give user feedback about win/loss
 Free heap allocated memory if needed
 ```
-

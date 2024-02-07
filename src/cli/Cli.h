@@ -18,4 +18,3 @@ void cli_IngameHelp(Board_t* board, char** commandvec);
 void cli_PrintHelp();
 
 #endif // !_COMMAND_LINE_INTERFACE_42_H_
-

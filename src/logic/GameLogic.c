@@ -135,4 +135,3 @@ void msw_FreeBoard(Board_t* board)
     free(board);
     board = NULL;
 }
-

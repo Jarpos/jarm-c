@@ -202,4 +202,3 @@ void cli_PrintHelp()
            MIN_GRID_ROWS, MAX_GRID_ROWS, MIN_GRID_COLUMNS, MAX_GRID_COLUMNS,
            STD_GRID_ROWS, STD_GRID_COLUMNS);
 }
-

@@ -6,4 +6,3 @@
 ## CMAKE Gitignore
 build/*
 !build/.gitkeep
-
